@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /*第一种方法适合没有文字的情况下*/
+        .div2{
+            width:20%;
+            height:0;
+            padding-bottom:20%;
+            background:blue;
+            margin:0 auto;
+        }
+        /*第二种方法可以添加内容和图片 比较常用 给父级设置宽度 ：after再添加一个div padding-bottom设置为100% 让中间的盒子绝对定位 宽高各为100% */
+        /*父级不能给高，给高的话就固定死了*/
+        .square {
+            width: 20%;
+
+            margin:0 auto;
+            background: #ccc;
+        }
+        /*after 为内容所在区域*/
+        .square:after {
+            content: "";
+            display: block;
+            padding-bottom: 100%;
+
+        }
+
+        .content {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+
+        }
+        /*第三种 三层盒子嵌套 根据after总结出来的*/
+        .box1{
+            width:20%;
+            margin:0 auto;
+        }
+        .box2{
+            padding-bottom:100%;
+            background:pink;
+        }
+        .box3{
+            width:100%;
+            height:100%;
+
+            position:absolute;
+
+        }
+    </style>
+</head>
+<body>
+
+<div class="div2">
+</div>
+<div class="square">
+    <div class="content">
+        Hello!
+    </div>
+</div>
+
+<div class="box1">
+    <div class="box2">
+        <div class="box3">
+            123
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
